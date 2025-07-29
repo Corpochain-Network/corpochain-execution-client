@@ -1,5 +1,5 @@
 {{range .Executables}}
 build/bin/{{.BinaryName}} usr/bin
 {{end}}
-build/deb/bpx-execution-client/completions/bash/bpx-geth etc/bash_completion.d
-build/deb/bpx-execution-client/completions/zsh/_bpx-geth usr/share/zsh/vendor-completions
+build/deb/corpochain-execution-client/completions/bash/corpochain-geth etc/bash_completion.d
+build/deb/corpochain-execution-client/completions/zsh/_corpochain-geth usr/share/zsh/vendor-completions

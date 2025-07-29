@@ -13,7 +13,7 @@ The `devp2p key ...` command family deals with node key files.
 
 Run `devp2p key generate mynode.key` to create a new node key in the `mynode.key` file.
 
-Run `devp2p key to-enode mynode.key -ip 127.0.0.1 -tcp 30303` to create an enode:// URL
+Run `devp2p key to-enode mynode.key -ip 127.0.0.1 -tcp 40303` to create an enode:// URL
 corresponding to the given node key and address information.
 
 ### Maintaining DNS Discovery Node Lists
@@ -129,7 +129,7 @@ The test suite can now be executed using the devp2p tool.
     devp2p rlpx eth-test \
         --chain internal/ethtest/testdata   \
         --node enode://....                 \
-        --engineapi http://127.0.0.1:8551   \
+        --engineapi http://127.0.0.1:9551   \
         --jwtsecret 0x7365637265747365637265747365637265747365637265747365637265747365
 
 Repeat the above process (re-initialising the node) in order to run the Eth Protocol test suite again.

@@ -4,13 +4,13 @@ Priority: extra
 Maintainer: {{.Author}}
 Build-Depends: debhelper (>= 8.0.0), {{.GoBootPackage}}
 Standards-Version: 3.9.5
-Homepage: https://bpxchain.cc
-Vcs-Git: https://github.com/bpx-chain/bpx-execution-client.git
-Vcs-Browser: https://github.com/bpx-chain/bpx-execution-client
+Homepage: https://corpochain.pl
+Vcs-Git: https://github.com/Corpochain-Network/corpochain-execution-client.git
+Vcs-Browser: https://github.com/Corpochain-Network/corpochain-execution-client
 
 Package: {{.Name}}
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Built-Using: ${misc:Built-Using}
-Description: BPX Execution Client
- BPX Execution Client
+Description: Corpochain Execution Client
+ Corpochain Execution Client

@@ -100,7 +100,7 @@ var (
 	chainIdFlag = &cli.Int64Flag{
 		Name:  "chainid",
 		Value: params.MainnetChainConfig.ChainID.Int64(),
-		Usage: "Chain id to use for signing (279=mainnet, 279001=testnet)",
+		Usage: "Chain id to use for signing (4001=mainnet, 40011=testnet)",
 	}
 	rpcPortFlag = &cli.IntFlag{
 		Name:     "http.port",
@@ -1078,7 +1078,7 @@ func GenDoc(ctx *cli.Context) error {
 		b    = common.HexToAddress("0x1111111122222222222233333333334444444444")
 		meta = core.Metadata{
 			Scheme:    "http",
-			Local:     "localhost:8545",
+			Local:     "localhost:9545",
 			Origin:    "www.malicious.ru",
 			Remote:    "localhost:9999",
 			UserAgent: "Firefox 3.2",

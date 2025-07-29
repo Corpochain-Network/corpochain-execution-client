@@ -28,11 +28,11 @@ import (
 
 const (
 	DefaultHTTPHost = "localhost" // Default host interface for the HTTP RPC server
-	DefaultHTTPPort = 8545        // Default TCP port for the HTTP RPC server
+	DefaultHTTPPort = 9545        // Default TCP port for the HTTP RPC server
 	DefaultWSHost   = "localhost" // Default host interface for the websocket RPC server
-	DefaultWSPort   = 8546        // Default TCP port for the websocket RPC server
+	DefaultWSPort   = 9546        // Default TCP port for the websocket RPC server
 	DefaultAuthHost = "localhost" // Default host interface for the authenticated apis
-	DefaultAuthPort = 8551        // Default port for the authenticated apis
+	DefaultAuthPort = 9551        // Default port for the authenticated apis
 )
 
 const (
@@ -66,7 +66,7 @@ var DefaultConfig = Config{
 	BatchResponseMaxSize: 25 * 1000 * 1000,
 	GraphQLVirtualHosts:  []string{"localhost"},
 	P2P: p2p.Config{
-		ListenAddr: ":30303",
+		ListenAddr: ":40303",
 		MaxPeers:   50,
 		NAT:        nat.Any(),
 	},
@@ -79,7 +79,7 @@ func DefaultDataDir() string {
 	// Try to place the data folder in the user's home dir
 	home := homeDir()
 	if home != "" {
-		return filepath.Join(home, ".bpxchain", "execution")
+		return filepath.Join(home, ".corpochain", "execution")
 	}
 	// As we cannot guess a stable location, return empty and handle later
 	return ""

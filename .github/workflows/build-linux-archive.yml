@@ -50,8 +50,8 @@ jobs:
     - name: Upload Linux artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: bpx-installers-linux-intel
-        path: ${{ github.workspace }}/bpx-execution-client-*.tar.gz
+        name: corpochain-installers-linux-intel
+        path: ${{ github.workspace }}/corpochain-execution-client-*.tar.gz
 
     - name: Upload release artifacts
       if: github.event_name == 'release'
@@ -60,4 +60,4 @@ jobs:
       run: |
         gh release upload \
           ${GITHUB_REF#refs/*/} \
-          bpx-execution-client-*.tar.gz
+          corpochain-execution-client-*.tar.gz

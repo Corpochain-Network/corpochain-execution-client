@@ -34,7 +34,7 @@ func newUint64(val uint64) *uint64 { return &val }
 var (
 	// MainnetChainConfig is the chain parameters to run a node on the main network.
 	MainnetChainConfig = &ChainConfig{
-		ChainID:                       big.NewInt(279),
+		ChainID:                       big.NewInt(4001),
 		HomesteadBlock:                big.NewInt(0),
 		DAOForkBlock:                  nil,
 		DAOForkSupport:                true,
@@ -59,7 +59,7 @@ var (
 
 	// TestnetChainConfig contains the chain parameters to run a node on the test network.
 	TestnetChainConfig = &ChainConfig{
-		ChainID:                       big.NewInt(279001),
+		ChainID:                       big.NewInt(40011),
 		HomesteadBlock:                big.NewInt(0),
 		DAOForkBlock:                  nil,
 		DAOForkSupport:                true,

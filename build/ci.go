@@ -63,7 +63,7 @@ var (
 	// Files that end up in the geth*.zip archive.
 	gethArchiveFiles = []string{
 		"COPYING",
-		executablePath("bpx-geth"),
+		executablePath("corpochain-geth"),
 	}
 
 	// Files that end up in the geth-alltools*.zip archive.
@@ -72,7 +72,7 @@ var (
 		executablePath("abigen"),
 		executablePath("bootnode"),
 		executablePath("evm"),
-		executablePath("bpx-geth"),
+		executablePath("corpochain-geth"),
 		executablePath("rlpdump"),
 		executablePath("clef"),
 	}
@@ -81,19 +81,19 @@ var (
 	debExecutables = []debExecutable{
 		{
 			BinaryName:  "abigen",
-			Description: "Source code generator to convert BPX contract definitions into easy to use, compile-time type-safe Go packages.",
+			Description: "Source code generator to convert Corpochain contract definitions into easy to use, compile-time type-safe Go packages.",
 		},
 		{
 			BinaryName:  "bootnode",
-			Description: "BPX execution chain bootnode.",
+			Description: "Corpochain execution chain bootnode.",
 		},
 		{
 			BinaryName:  "evm",
 			Description: "Developer utility version of the EVM that is capable of running bytecode snippets within a configurable environment and execution mode.",
 		},
 		{
-			BinaryName:  "bpx-geth",
-			Description: "BPX execution client.",
+			BinaryName:  "corpochain-geth",
+			Description: "Corpochain execution client.",
 		},
 		{
 			BinaryName:  "rlpdump",
@@ -101,13 +101,13 @@ var (
 		},
 		{
 			BinaryName:  "clef",
-			Description: "BPX account management tool.",
+			Description: "Corpochain account management tool.",
 		},
 	}
 
 	// A debian package is created for all executables listed here.
 	debEthereum = debPackage{
-		Name:        "bpx-execution-client",
+		Name:        "corpochain-execution-client",
 		Version:     params.Version,
 		Executables: debExecutables,
 	}
@@ -414,8 +414,8 @@ func doArchive(cmdline []string) {
 	var (
 		env      = build.Env()
 		basegeth = archiveBasename(*arch, params.ArchiveVersion(env.Commit))
-		geth     = "bpx-execution-client-" + basegeth + ext
-		alltools = "bpx-execution-client-alltools-" + basegeth + ext
+		geth     = "corpochain-execution-client-" + basegeth + ext
+		alltools = "corpochain-execution-client-alltools-" + basegeth + ext
 	)
 	maybeSkipArchive(env)
 	if err := build.WriteArchive(geth, gethArchiveFiles); err != nil {
@@ -828,7 +828,7 @@ func (d debExecutable) Package() string {
 func newDebMetadata(distro, goboot, author string, env build.Environment, t time.Time, name string, version string, exes []debExecutable) debMetadata {
 	if author == "" {
 		// No signing key, use default author.
-		author = "BPX Network <hello@bpxchain.cc>"
+		author = "Corpochain <hello@corpochain.pl>"
 	}
 	return debMetadata{
 		GoBootPackage: goboot,
@@ -893,7 +893,7 @@ func (meta debMetadata) ExeConflicts(exe debExecutable) string {
 		// be preferred and the conflicting files should be handled via
 		// alternates. We might do this eventually but using a conflict is
 		// easier now.
-		return "bpx-execution-client, " + exe.Package()
+		return "corpochain-execution-client, " + exe.Package()
 	}
 	return ""
 }
@@ -946,7 +946,7 @@ func doWindowsInstaller(cmdline []string) {
 			continue
 		}
 		allTools = append(allTools, filepath.Base(file))
-		if filepath.Base(file) == "bpx-geth.exe" {
+		if filepath.Base(file) == "corpochain-geth.exe" {
 			gethTool = file
 		} else {
 			devTools = append(devTools, file)
@@ -978,7 +978,7 @@ func doWindowsInstaller(cmdline []string) {
 	if env.Commit != "" {
 		version[2] += "-" + env.Commit[:8]
 	}
-	installer, err := filepath.Abs("bpx-execution-client-" + archiveBasename(*arch, params.ArchiveVersion(env.Commit)) + ".exe")
+	installer, err := filepath.Abs("corpochain-execution-client-" + archiveBasename(*arch, params.ArchiveVersion(env.Commit)) + ".exe")
 	if err != nil {
 		log.Fatalf("Failed to convert installer file path: %v", err)
 	}

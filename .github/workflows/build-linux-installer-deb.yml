@@ -45,7 +45,7 @@ jobs:
     - name: Upload Linux artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: bpx-installers-linux-deb-intel
+        name: corpochain-installers-linux-deb-intel
         path: ${{ github.workspace }}/dist/*.deb
 
     - name: Upload release artifacts

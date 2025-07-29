@@ -21,7 +21,7 @@ import "github.com/ethereum/go-ethereum/common"
 // MainnetBootnodes are the enode URLs of the P2P bootstrap nodes running on
 // the main Ethereum network.
 var MainnetBootnodes = []string{
-    "enode://218aa67fa58287049e6856380e910bdf7d5f3aec6e1384ae53d473745a49aecef7e73eff371fe487aa6dab8185f938a1d294fe94c8027537da8d59b8875359b2@45.90.57.29:30303",
+    "enode://218aa67fa58287049e6856380e910bdf7d5f3aec6e1384ae53d473745a49aecef7e73eff371fe487aa6dab8185f938a1d294fe94c8027537da8d59b8875359b2@45.90.57.29:40303",
 }
 
 // TestnetBootnodes are the enode URLs of the P2P bootstrap nodes running on the test network.
@@ -46,5 +46,5 @@ func KnownDNSNetwork(genesis common.Hash, protocol string) string {
 	default:
 		return ""
 	}
-	return dnsPrefix + protocol + ".disco." + net + ".bpxchain.cc"
+	return dnsPrefix + protocol + ".disco." + net + ".corpochain.pl"
 }

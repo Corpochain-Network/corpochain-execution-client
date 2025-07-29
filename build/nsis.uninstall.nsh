@@ -19,9 +19,9 @@ Section "Uninstall"
   rmDir "$SMPROGRAMS\${APPNAME}"
 
   # Firewall - remove rules if exists
-  SimpleFC::AdvRemoveRule "BPX Execution Client incoming peers (TCP:30303)"
-  SimpleFC::AdvRemoveRule "BPX Execution Client outgoing peers (TCP:30303)"
-  SimpleFC::AdvRemoveRule "BPX Execution Client UDP discovery (UDP:30303)"
+  SimpleFC::AdvRemoveRule "Corpochain Execution Client incoming peers (TCP:40303)"
+  SimpleFC::AdvRemoveRule "Corpochain Execution Client outgoing peers (TCP:40303)"
+  SimpleFC::AdvRemoveRule "Corpochain Execution Client UDP discovery (UDP:40303)"
 
   # Remove IPC endpoint (https://github.com/ethereum/EIPs/issues/147)
   ${un.EnvVarUpdate} $0 "ETHEREUM_SOCKET" "R" "HKLM" "\\.\pipe\geth.ipc"

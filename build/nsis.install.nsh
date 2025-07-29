@@ -1,11 +1,11 @@
-Name "BPX Execution Client ${MAJORVERSION}.${MINORVERSION}.${BUILDVERSION}" # VERSION variables set through command line arguments
+Name "Corpochain Execution Client ${MAJORVERSION}.${MINORVERSION}.${BUILDVERSION}" # VERSION variables set through command line arguments
 InstallDir "$InstDir"
 OutFile "${OUTPUTFILE}" # set through command line arguments
 
 # Links for "Add/Remove Programs"
-!define HELPURL "https://github.com/bpx-chain/bpx-execution-client/issues"
-!define UPDATEURL "https://github.com/bpx-chain/bpx-execution-client/releases"
-!define ABOUTURL "https://github.com/bpx-chain/bpx-execution-client"
+!define HELPURL "https://github.com/Corpochain-Network/corpochain-execution-client/issues"
+!define UPDATEURL "https://github.com/Corpochain-Network/corpochain-execution-client/releases"
+!define ABOUTURL "https://github.com/Corpochain-Network/corpochain-execution-client"
 !define /date NOW "%Y%m%d"
 
 PageEx license
@@ -19,21 +19,21 @@ Section "Geth" GETH_IDX
 
   # Create start menu launcher
   createDirectory "$SMPROGRAMS\${APPNAME}"
-  createShortCut "$SMPROGRAMS\${APPNAME}\${APPNAME}.lnk" "$INSTDIR\bpx-geth.exe" "--syncmode snap --http"
-  createShortCut "$SMPROGRAMS\${APPNAME}\${APPNAME} (Testnet).lnk" "$INSTDIR\bpx-geth.exe" "--testnet --syncmode snap --http"
-  createShortCut "$SMPROGRAMS\${APPNAME}\Attach.lnk" "$INSTDIR\bpx-geth.exe" "attach"
-  createShortCut "$SMPROGRAMS\${APPNAME}\Attach (Testnet).lnk" "$INSTDIR\bpx-geth.exe" 'attach --datadir "$PROFILE\.bpxchain\execution\testnet"'
+  createShortCut "$SMPROGRAMS\${APPNAME}\${APPNAME}.lnk" "$INSTDIR\corpochain-geth.exe" "--syncmode snap --http"
+  createShortCut "$SMPROGRAMS\${APPNAME}\${APPNAME} (Testnet).lnk" "$INSTDIR\corpochain-geth.exe" "--testnet --syncmode snap --http"
+  createShortCut "$SMPROGRAMS\${APPNAME}\Attach.lnk" "$INSTDIR\corpochain-geth.exe" "attach"
+  createShortCut "$SMPROGRAMS\${APPNAME}\Attach (Testnet).lnk" "$INSTDIR\corpochain-geth.exe" 'attach --datadir "$PROFILE\.corpochain\execution\testnet"'
   createShortCut "$SMPROGRAMS\${APPNAME}\Uninstall.lnk" "$INSTDIR\uninstall.exe"
 
   # Firewall - remove rules (if exists)
-  SimpleFC::AdvRemoveRule "BPX Execution Client incoming peers (TCP:30303)"
-  SimpleFC::AdvRemoveRule "BPX Execution Client outgoing peers (TCP:30303)"
-  SimpleFC::AdvRemoveRule "BPX Execution Client UDP discovery (UDP:30303)"
+  SimpleFC::AdvRemoveRule "Corpochain Execution Client incoming peers (TCP:40303)"
+  SimpleFC::AdvRemoveRule "Corpochain Execution Client outgoing peers (TCP:40303)"
+  SimpleFC::AdvRemoveRule "Corpochain Execution Client UDP discovery (UDP:40303)"
 
   # Firewall - add rules
-  SimpleFC::AdvAddRule "BPX Execution Client incoming peers (TCP:30303)" ""  6 1 1 2147483647 1 "$INSTDIR\bpx-geth.exe" "" "" "BPX Execution Client" 30303 "" "" ""
-  SimpleFC::AdvAddRule "BPX Execution Client outgoing peers (TCP:30303)" ""  6 2 1 2147483647 1 "$INSTDIR\bpx-geth.exe" "" "" "BPX Execution Client" "" 30303 "" ""
-  SimpleFC::AdvAddRule "BPX Execution Client UDP discovery (UDP:30303)" "" 17 2 1 2147483647 1 "$INSTDIR\bpx-geth.exe" "" "" "BPX Execution Client" "" 30303 "" ""
+  SimpleFC::AdvAddRule "Corpochain Execution Client incoming peers (TCP:40303)" ""  6 1 1 2147483647 1 "$INSTDIR\corpochain-geth.exe" "" "" "Corpochain Execution Client" 40303 "" "" ""
+  SimpleFC::AdvAddRule "Corpochain Execution Client outgoing peers (TCP:40303)" ""  6 2 1 2147483647 1 "$INSTDIR\corpochain-geth.exe" "" "" "Corpochain Execution Client" "" 40303 "" ""
+  SimpleFC::AdvAddRule "Corpochain Execution Client UDP discovery (UDP:40303)" "" 17 2 1 2147483647 1 "$INSTDIR\corpochain-geth.exe" "" "" "Corpochain Execution Client" "" 40303 "" ""
 
   # Set default IPC endpoint (https://github.com/ethereum/EIPs/issues/147)
   ${EnvVarUpdate} $0 "ETHEREUM_SOCKET" "R" "HKLM" "\\.\pipe\geth.ipc"

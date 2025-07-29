@@ -48,7 +48,7 @@ jobs:
         GO111MODULE: on
 
     - name: Upload Linux artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: corpochain-installers-linux-intel
         path: ${{ github.workspace }}/corpochain-execution-client-*.tar.gz

@@ -22,7 +22,7 @@ concurrency:
 jobs:
   build:
     name: Windows 10 Installer
-    runs-on: [windows-2019]
+    runs-on: [windows-2022]
     timeout-minutes: 50
     strategy:
       fail-fast: false
@@ -47,7 +47,7 @@ jobs:
         GO111MODULE: on
 
     - name: Upload Installer to artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: corpochain-installers-windows-exe-intel
         path: ${{ github.workspace }}/corpochain-execution-client-*.exe

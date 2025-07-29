@@ -43,7 +43,7 @@ jobs:
         GO111MODULE: on
 
     - name: Upload Linux artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: corpochain-installers-linux-deb-intel
         path: ${{ github.workspace }}/dist/*.deb
